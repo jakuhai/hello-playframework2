@@ -5,6 +5,10 @@
 # Home page
 GET     /                           controllers.Application.index()
 
+GET     /add                           controllers.Application.add()
+
+POST     /create                           controllers.Application.create()
+
 #GET     /test1                       controllers.Application.index()
 
 #GET     /send                       controllers.Application.send()

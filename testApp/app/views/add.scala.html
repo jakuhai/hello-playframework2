@@ -1,0 +1,27 @@
+@(msg: String, form1: Form[models.Message])
+
+@main("Sample Page") {
+
+    <h1>Hello PlayFrameWork!!</h1>
+    <p>サンプルメッセージ</p>
+
+    <h1>@msg</h1>
+
+    @helper.form(action = routes.Application.create){
+
+    	@(helper.inputText(
+    		field = form1("name")
+    	))
+
+    	@(helper.inputText(
+    		field = form1("mail")
+    	))
+
+    	@(helper.textarea(
+    		field = form1("message")
+    	))
+
+    	<input type="submit">
+
+    }
+}
