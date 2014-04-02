@@ -16,6 +16,8 @@ POST     /update                           controllers.Application.update()
 GET     /del                           controllers.Application.delete()
 POST     /remove                           controllers.Application.remove()
 
+GET     /find                           controllers.Application.find()
+
 #GET     /test1                       controllers.Application.index()
 
 #GET     /send                       controllers.Application.send()

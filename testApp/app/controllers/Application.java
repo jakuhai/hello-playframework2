@@ -10,6 +10,7 @@ import play.mvc.Result;
 import views.html.add;
 import views.html.delete;
 import views.html.edit;
+import views.html.find;
 import views.html.index;
 import views.html.item;
 
@@ -110,6 +111,20 @@ public class Application extends Controller {
  			return badRequest(delete.render("ERROR：入力に問題があります。", f));
  		}
 
+ 	}
+
+ 	public static Result find(){
+ 		Form<FindForm> f = new Form<FindForm>(FindForm.class).bindFromRequest();
+ 		List<Message> datas = null;
+ 		if (!f.hasErrors()){
+ 			String input = f.get().input;
+ 			datas = Message.find.where().like("message", "%"+input+"%").orderBy("message desc")
+ 					.findPagingList(1).getPage(0).getList();
+ 			//where(SQL文)でも可
+ 			//where.raw(SQL文)もある
+ 		}
+
+ 		return ok(find.render("投稿の検索", f, datas));
  	}
 
 }
